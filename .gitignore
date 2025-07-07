@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+*.log
+*.pot
+*.pyc
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env/
+.idea/
+.vscode/
+
+# Dependency files
+poetry.lock
+Pipfile.lock
+
+# macOS/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# Uvicorn logs
+*.sqlite3
+*.db
+
+# Zip or output builds
+*.zip
