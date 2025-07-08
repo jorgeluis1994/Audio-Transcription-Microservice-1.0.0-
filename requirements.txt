@@ -1,5 +1,26 @@
+# Core FastAPI + servidor
 fastapi
 uvicorn
-python-multipart
+
+# Procesamiento de audio
+pydub
+mutagen
+noisereduce
+librosa
+soundfile
+
+# Transcripción con modelos locales (Faster Whisper)
+faster-whisper
+
+# OpenAI (nuevo cliente y legacy)
 openai
-python-dotenvw
+tiktoken
+
+# Carga de variables de entorno
+python-dotenv
+
+# Logging asincrónico / helpers
+aiofiles
+
+# Otros
+httpx  # Necesario para openai client en algunos entornos

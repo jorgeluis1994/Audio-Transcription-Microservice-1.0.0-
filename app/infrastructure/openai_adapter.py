@@ -132,3 +132,12 @@ class OpenAIWhisperAdapter(AudioToTextPort):
         file_like.seek(0)
         return duration
 
+    def transform_audio(fiel_path:str ,output_path:str,file: BinaryIO)->str:
+        try:
+            audio = AudioSegment.from_file(fiel_path)
+            audio.export(output_path, format="mp3")
+            return output_path
+        except Exception as e:
+            logger.error(f"Error al transformar el audio: {e}")
+            raise HTTPException(status_code=500, detail="Error al transformar el audio")
+        
