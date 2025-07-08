@@ -1,3 +1,4 @@
+from io import BytesIO
 import logging
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from app.application.use_cases import TranscribeAudioUseCase
@@ -44,9 +45,14 @@ async def transcribe_audio(file: UploadFile = File(...)):
 
     try:
         content = await file.read()
-        transcription = use_case.execute(file=content, filename=file.filename)
+        file_like = BytesIO(content)
+        
+        transcription = await use_case.execute(file=file_like, filename=file.filename)
+        
         logger.info(f"Transcripción exitosa para archivo: {file.filename}")
         return {"text": transcription}
     except Exception as e:
         logger.error(f"Error durante la transcripción: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
+    
+
